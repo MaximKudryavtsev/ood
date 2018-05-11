@@ -1,0 +1,32 @@
+Shape: CIRCLE
+Square =  31415926535.90
+Perimeter = 628318.53
+
+Shape: RECTANGLE
+Square =  200000000.00
+Perimeter = 60000.00
+
+Shape: TRIANGLE
+Square =  600000000.00
+Perimeter = 120000.00
+
+Shape: CIRCLE
+Square =  31415926535.90
+Perimeter = 628318.53
+
+Shape: RECTANGLE
+Square =  80000.00
+Perimeter = 1200.00
+
+Shape: TRIANGLE
+Square =  6.00
+Perimeter = 12.00
+
+Shape: CIRCLE
+Square =  3.14
+Perimeter = 6.28
+
+Shape: RECTANGLE
+Square =  800.00
+Perimeter = 120.00
+
