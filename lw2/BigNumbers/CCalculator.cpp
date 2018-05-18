@@ -78,7 +78,7 @@ CBigNumbers* CCalculator::Minus(CBigNumbers &left, CBigNumbers &right)
 
 CBigNumbers* CCalculator::Multiply(CBigNumbers &left, CBigNumbers &right)
 {
-	if (left.Digits.size() == 1 && left.Digits[0] == 0 || right.Digits.size() == 1 && right.Digits[0] == 0)
+	/*if (left.Digits.size() == 1 && left.Digits[0] == 0 || right.Digits.size() == 1 && right.Digits[0] == 0)
 	{
 		std::vector<int> zeroVector = { 0 };
 		return new CBigNumbers(zeroVector);
@@ -113,9 +113,24 @@ CBigNumbers* CCalculator::Multiply(CBigNumbers &left, CBigNumbers &right)
 		}
 	}
 
-	CBigNumbers result;
-	
+	CBigNumbers result;*/
 
+	if (left.Digits.size() == 1 && left.Digits[0] == 0 || right.Digits.size() == 1 && right.Digits[0] == 0)
+	{
+		std::vector<int> zeroVector = { 0 };
+		return new CBigNumbers(zeroVector);
+	}
+
+	std::vector<int> result;
+
+	int length = left.Digits.size() + right.Digits.size();
+	result.resize(length);
+	
+	for (int i = 0; i < right.Digits.size(); i++)
+		for (int j = 0; j < left.Digits.size(); j++)
+			result[i + j] += left.Digits[i] * right.Digits[i];
+
+	return new CBigNumbers(result);
 }
 
 bool CCalculator::AreEqual(CBigNumbers &left, CBigNumbers &right)
@@ -170,9 +185,8 @@ CBigNumbers* CCalculator::Calculate(CBigNumbers left, CBigNumbers right, char si
 		return left - right;
 	case '*':
 		return left * right;
-	case '/':
-		return left / right;
 	}
+
 }
 
 CCalculator::~CCalculator()
