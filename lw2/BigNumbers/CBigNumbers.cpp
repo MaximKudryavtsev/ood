@@ -7,13 +7,13 @@ CBigNumbers::CBigNumbers()
 
 CBigNumbers::CBigNumbers(std::string &number)
 {
-	std::string temp;
 	for (int i = number.length() - 1; i >= 0; --i)
 	{
 		int num = atoi(number.substr(i, 1).c_str());
 		m_number.push_back(num);
 	}
 	Normalize();
+	
 }
 
 CBigNumbers::CBigNumbers(int number)
@@ -106,7 +106,14 @@ const CBigNumbers operator-(const CBigNumbers &left, const CBigNumbers &right)
 
 const CBigNumbers operator*(const CBigNumbers &left, const CBigNumbers &right)
 {
+	std::string zero = "0";
 	CBigNumbers result;
+	CBigNumbers zeroBigNumber(zero);
+
+	if (left.GetSize() == 1 && left.m_number[0] == 0 || right.GetSize() == 1 && right.m_number[0] == 0)
+	{
+		return zeroBigNumber;
+	}
 
 	int length = left.GetSize() + right.GetSize();
 	result.m_number.resize(length);
@@ -136,12 +143,19 @@ const CBigNumbers operator*(const CBigNumbers &left, const CBigNumbers &right)
 
 const CBigNumbers operator/(const CBigNumbers &left, const CBigNumbers &right)
 {
+	std::string zero = "0";
 	CBigNumbers dividend;
 	CBigNumbers result;
+	CBigNumbers zeroBigNimber(zero);
+
+	if (left.GetSize() == 1 && left.m_number[0] == 0)
+	{
+		return zeroBigNimber;
+	}
 
 	if (right.GetSize() == 1 && right.m_number[0] == 0)
 	{
-		throw std::invalid_argument("division by zero is not allowed");
+		return zeroBigNimber;
 	}
 
 	for (int i = left.GetSize() - 1; i >= 0; --i)

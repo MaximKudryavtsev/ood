@@ -24,7 +24,15 @@ CBigNumbers CController::Calculate(CBigNumbers left, CBigNumbers right, char sig
 
 void CController::PrintToFile(CBigNumbers left, CBigNumbers right, CBigNumbers res, char sign, std::ofstream &output)
 {
-	output << left.ToString() << " " << sign << " " << right.ToString() << " = " << res.ToString() << std::endl;
+	if (sign == '/' && right.ToString() == "0")
+	{
+		output << left.ToString() << " " << sign << " " << right.ToString() << " = " << "can not be divided by zero" << std::endl;
+	}
+	else
+	{
+		output << left.ToString() << " " << sign << " " << right.ToString() << " = " << res.ToString() << std::endl;
+	}
+		
 }
 
 CController::~CController()
