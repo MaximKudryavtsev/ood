@@ -6,11 +6,25 @@ CController::CController()
 {
 }
 
-void CController::PrintToFile(CBigNumbers left, CBigNumbers right, CBigNumbers* res, char sign, std::ofstream &output)
+CBigNumbers CController::Calculate(CBigNumbers left, CBigNumbers right, char sign)
 {
-	std::reverse(left.Digits.begin(), left.Digits.end());
-	std::reverse(right.Digits.begin(), right.Digits.end());
-	output << left.ToString() << " " << sign << " " << right.ToString() << " = " << res->ToString() << std::endl;
+	switch (sign)
+	{
+	case '+':
+		return left + right;
+	case '-':
+		return left - right;
+	case '*':
+		return left * right;
+	case '/':
+		return left / right;
+	}
+
+}
+
+void CController::PrintToFile(CBigNumbers left, CBigNumbers right, CBigNumbers res, char sign, std::ofstream &output)
+{
+	output << left.ToString() << " " << sign << " " << right.ToString() << " = " << res.ToString() << std::endl;
 }
 
 CController::~CController()

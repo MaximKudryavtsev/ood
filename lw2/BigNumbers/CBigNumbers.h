@@ -1,29 +1,27 @@
 #pragma once
-class CBigNumbers
+class CBigNumbers final
 {
 public:
 	CBigNumbers();
-	CBigNumbers(std::vector<int> number);
-	CBigNumbers(std::vector<int> number, bool isPositive);
-	
-	std::vector<int> Digits;
-	bool IsPositice = true;
+	CBigNumbers(std::string &number);
+	CBigNumbers(int number);
+	void Normalize();
+	int GetSize() const;
 	std::string ToString();
-	static std::vector<int> StringToVector(const std::string &str);
+	const CBigNumbers& operator=(const CBigNumbers &number);
+
+	friend const CBigNumbers operator+(const CBigNumbers &left, const CBigNumbers &right);
+	friend const CBigNumbers operator-(const CBigNumbers &left, const CBigNumbers &right);
+	friend const CBigNumbers operator*(const CBigNumbers &left, const CBigNumbers &right);
+	friend const CBigNumbers operator/(const CBigNumbers &left, const CBigNumbers &right);
+
+	friend const bool operator>(const CBigNumbers &left, const CBigNumbers &right);
+	friend const bool operator>=(const CBigNumbers &left, const CBigNumbers &right);
+	friend const bool operator==(const CBigNumbers &left, const CBigNumbers &right);
 	~CBigNumbers();
 private:
 	std::vector<int> m_number;
 };
-
-CBigNumbers* const operator+(CBigNumbers &left, CBigNumbers &right);
-CBigNumbers* const operator-(CBigNumbers &left, CBigNumbers &right);
-CBigNumbers* const operator*(CBigNumbers &left, CBigNumbers &right);
-CBigNumbers* const operator/(CBigNumbers &left, CBigNumbers &right);
-
-bool operator>(CBigNumbers &left, CBigNumbers &right);
-bool operator<(CBigNumbers &left, CBigNumbers &right);
-bool operator==(CBigNumbers &left, CBigNumbers &right);
-bool operator!=(CBigNumbers &left, CBigNumbers &right);
 
 
 
