@@ -280,6 +280,60 @@ const bool operator==(const CBigNumbers &left, const CBigNumbers &right)
 	return false;
 }
 
+const bool operator<=(const CBigNumbers &left, const CBigNumbers &right)
+{
+	if (left.GetSize() < right.GetSize())
+	{
+		return true;
+	}
+	else if (left.GetSize() == right.GetSize())
+	{
+		for (int i = right.GetSize() - 1; i >= 0; --i)
+		{
+			if (left.m_number[i] > right.m_number[i])
+			{
+				return false;
+			}
+			else if (left.m_number[i] < right.m_number[i]) {
+				return true;
+			}
+		}
+		return true;
+	}
+
+	return false;
+}
+
+const CBigNumbers sqrt(const CBigNumbers &number)
+{
+	CBigNumbers cur;
+	
+	int pos = (number.GetSize() + 1) / 2;
+	cur.m_number.resize(pos);
+	pos--;
+	while (pos >= 0)
+	{
+		int l = 0;
+		int r = 10;
+		int curDigit = 0;
+		while (l <= r)
+		{
+			int m = (l + r) >> 1;
+			cur.m_number[pos] = m;
+			if (cur * cur <= number)
+			{
+				curDigit = m;
+				l = m + 1;
+			}
+			else
+				r = m - 1;
+		}
+		cur.m_number[pos] = curDigit;
+		pos--;	
+	}
+	return cur;
+}
+
 CBigNumbers::~CBigNumbers()
 {
 }

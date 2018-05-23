@@ -28,9 +28,13 @@ void CController::PrintToFile(CBigNumbers left, CBigNumbers right, CBigNumbers r
 	{
 		output << left.ToString() << " " << sign << " " << right.ToString() << " = " << "can not be divided by zero" << std::endl;
 	}
+	else if (sign == '-' && right > left)
+	{
+		output << left.ToString() << " " << sign << " " << right.ToString() << " = " << " -" << res.ToString() << std::endl;
+	}
 	else
 	{
-		output << left.ToString() << " " << sign << " " << right.ToString() << " = " << res.ToString() << std::endl;
+		output << left.ToString() << " " << sign << " " << right.ToString() << " = "  << res.ToString() << std::endl;
 	}
 		
 }
