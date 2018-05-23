@@ -77,8 +77,8 @@
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">
     <LinkIncremental>true</LinkIncremental>
-    <IncludePath>D:\boost_1_63_0\boost_1_63_0;D:\boost_1_63_0\boost_1_63_0;D:\boost_1_57_0;$(IncludePath)</IncludePath>
-    <LibraryPath>D:\boost_1_63_0\boost_1_63_0\stage\lib;D:\boost_1_63_0\boost_1_63_0\stage\lib;D:\boost_1_57_0\stage\lib;$(LibraryPath)</LibraryPath>
+    <IncludePath>D:\boost_1_63_0\boost_1_63_0;D:\boost_1_57_0;D:\boost_1_63_0\boost_1_63_0;D:\boost_1_57_0;$(IncludePath)</IncludePath>
+    <LibraryPath>D:\boost_1_63_0\boost_1_63_0\stage\lib;D:\boost_1_57_0\stage\lib;D:\boost_1_63_0\boost_1_63_0\stage\lib;D:\boost_1_57_0\stage\lib;$(LibraryPath)</LibraryPath>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
     <LinkIncremental>false</LinkIncremental>
@@ -87,8 +87,8 @@
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'">
     <LinkIncremental>false</LinkIncremental>
-    <IncludePath>D:\boost_1_63_0\boost_1_63_0;D:\boost_1_57_0;$(IncludePath)</IncludePath>
-    <LibraryPath>D:\boost_1_63_0\boost_1_63_0\stage\lib;D:\boost_1_57_0\stage\lib;$(LibraryPath)</LibraryPath>
+    <IncludePath>D:\boost_1_63_0\boost_1_63_0;D:\boost_1_57_0;D:\boost_1_57_0;$(IncludePath)</IncludePath>
+    <LibraryPath>D:\boost_1_63_0\boost_1_63_0\stage\lib;D:\boost_1_57_0\stage\lib;D:\boost_1_57_0\stage\lib;$(LibraryPath)</LibraryPath>
   </PropertyGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
     <ClCompile>
@@ -160,6 +160,7 @@
     <ClInclude Include="CTriangle.h" />
     <ClInclude Include="Point.h" />
     <ClInclude Include="RectangleCreator.h" />
+    <ClInclude Include="ShapeController.h" />
     <ClInclude Include="stdafx.h" />
     <ClInclude Include="targetver.h" />
     <ClInclude Include="TriangleCreator.h" />
@@ -173,6 +174,7 @@
     <ClCompile Include="Point.cpp" />
     <ClCompile Include="main.cpp" />
     <ClCompile Include="RectangleCreator.cpp" />
+    <ClCompile Include="ShapeController.cpp" />
     <ClCompile Include="stdafx.cpp">
       <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">Create</PrecompiledHeader>
       <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">Create</PrecompiledHeader>
