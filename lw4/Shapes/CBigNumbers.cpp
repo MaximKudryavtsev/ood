@@ -60,8 +60,18 @@ const CBigNumbers & CBigNumbers::operator=(const CBigNumbers & number)
 
 const CBigNumbers operator+(const CBigNumbers &left, const CBigNumbers &right)
 {
-	CBigNumbers result = left;
-	CBigNumbers operand = right;
+	CBigNumbers result;
+	CBigNumbers operand;
+	if (right > left)
+	{
+		result = right;
+		operand = left;
+	}
+	else
+	{
+		result = left;
+		operand = right;
+	}
 
 	int carry = 0;
 	for (int i = 0; i < result.GetSize() || carry; ++i)

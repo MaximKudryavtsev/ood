@@ -13,8 +13,12 @@ CBigNumbers CTriangle::GetPerimeter() const
 {
 	CBigNumbers a = (((m_p2.GetX() - m_p1.GetX()) * (m_p2.GetX() - m_p1.GetX())) + ((m_p2.GetY() - m_p1.GetY()) * (m_p2.GetY() - m_p1.GetY())));
 	CBigNumbers b = (((m_p3.GetX() - m_p2.GetX()) * (m_p3.GetX() - m_p2.GetX())) + ((m_p3.GetY() - m_p2.GetY()) * (m_p3.GetY() - m_p2.GetY())));
-	CBigNumbers c = (((m_p3.GetX() - m_p1.GetX()) * (m_p3.GetX() - m_p1.GetX())) + ((m_p3.GetY() - m_p1.GetY()) * (m_p3.GetY() - m_p1.GetY())));
-	return sqrt(a);//sqrt(b) + sqrt(c);
+	CBigNumbers c = (((m_p3.GetX() - m_p1.GetX()) * (m_p3.GetX() - m_p1.GetX()))) + (((m_p3.GetY() - m_p1.GetY()) * (m_p3.GetY() - m_p1.GetY())));
+	std::cout << a.ToString() << std::endl;
+	std::cout << b.ToString() << std::endl;
+	std::cout << c.ToString() << std::endl;
+	std::cout << std::endl;
+	return sqrt(a) + sqrt(b) + sqrt(c);
 }
 
 CBigNumbers CTriangle::GetSquare() const
